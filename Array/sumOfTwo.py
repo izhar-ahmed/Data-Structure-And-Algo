@@ -23,8 +23,7 @@ def sumOfTwo(arr, target):
 						continue
 				
 				if arr[i] + arr[j] == target:
-						print(i,j)
+						print(f"[{i}, {j}]")
 						break
-				j = j + 1
 
-sumOfTwo([2, 7, 11, 15], 18)
+sumOfTwo([3,3], 6)

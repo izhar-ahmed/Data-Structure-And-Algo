@@ -1,3 +1,6 @@
+#Hash Tables are data structures which generally provide very fast(O(1)) lookups, insertions and deletions
+#In Python, dictionaries are implemented as hash tables.
+
 #The way hashing works is that there is a bucket containing slots to fill with elements.
 #Like in arrays, elements are referenced by their integer indexes, in dictionaries, or hash tables,
 #values are referenced by their keys, which can be of any data type.
@@ -10,6 +13,13 @@
 #although not by a lot in most cases. This is known as a collision.
 #Now, like for almost all problem there is some sort of a solution in the computer science world,
 #collisions can also be resolved by numerous collison resolution techniques like open addressing and closed addressing
+
+#Some basic operations and their complexities are given below :
+
+#Look-up/Accses - O(1)
+#Search - O(1)*
+#Insert - O(1)
+#Delete - O(1)
 
 #Enough details, let's look at how hash tables are implemented in Python using dictionaries.
 
