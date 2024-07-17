@@ -84,7 +84,7 @@ class LinkedList():
                 new_node.next = self.head
                 self.head = new_node
                 self.length += 1
-        elif index == self.length + 1:
+        elif index == self.length:
             self.tail.next = new_node
             self.tail = new_node
             self.length += 1
@@ -95,6 +95,102 @@ class LinkedList():
             new_node.next = current_node.next
             current_node.next = new_node
             self.length += 1
+    
+    def remove(self, index):
+        if index == 0:
+            self.head = self.head.next
+            self.length -= 1
+        else:
+            current_node = self.head
+            for i in range(index - 1):
+                current_node = current_node.next
+            lead_node = current_node.next
+            current_node.next = lead_node.next
+            self.length -= 1
+        
+
+class DNode():
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+class DoublyLinkedList():
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
+    
+    def append(self, data):
+        new_node = DNode(data)
+        if self.head == None:
+            self.head = new_node
+            self.tail = self.head
+            self.length += 1
+        else:
+            new_node.prev = self.tail
+            self.tail.next = new_node
+            self.tail = new_node
+            self.length += 1
+    
+    def print_list(self):
+        i = 0
+        current_node = self.head
+        if current_node.data == None:
+            print("empty")
+        while current_node != None:
+            print(current_node.data, end= ' ')
+            current_node = current_node.next
+        print()
+    
+    def preppend(self, data):
+        new_node = DNode(data)
+        if self.head == None:
+            self.head = new_node
+            self.tail = self.head
+            self.length += 1
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+            self.length += 1
+        
+    def insert(self, index, data):
+        new_node = DNode(data)
+        if index >= self.length:
+            print("there is no such index")
+        current_node = self.head
+        for i in range(index - 1):
+            current_node = current_node.next
+        lead_node = current_node.next
+        current_node.next = new_node
+        new_node.next = lead_node
+        lead_node.prev = new_node
+        self.length += 1
+        
+    
+    def remove(self, index):
+        if index == 0:
+            self.head = self.head.next
+            self.head.prev = None
+        elif index == self.length -1:
+            self.tail = self.tail.prev
+            self.tail.next = None
+        else:
+            current_node = self.head
+            for i in range(index - 1):
+                current_node = current_node.next
+            lead_node = current_node.next
+            follow_node = lead_node.next
+            current_node.next = follow_node
+            follow_node.prev = current_node
+
+        
+
+
+
+
+
+
 
 
 
@@ -106,5 +202,16 @@ myLinkedList.append(5)
 myLinkedList.append(10)
 myLinkedList.prepend(2)
 myLinkedList.insert(1, 1) # [2,1,5,10]
-myLinkedList.insert(3, 7)
+myLinkedList.insert(3, 7) # [2,1,5,7,10]
+#myLinkedList.insert(4,11) # [2,1,5,7,10,11]
+myLinkedList.remove(4)
 myLinkedList.print_list()
+print("-----------------------------")
+myDoublyLinkList = DoublyLinkedList()
+myDoublyLinkList.append(5)
+myDoublyLinkList.append(10)
+myDoublyLinkList.append(15)
+myDoublyLinkList.preppend(2) # 2 5 10 15 
+myDoublyLinkList.insert(2, 44) # 2,5,44,10,15
+myDoublyLinkList.remove(2)
+myDoublyLinkList.print_list()
