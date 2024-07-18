@@ -30,8 +30,6 @@ class Myarray():
 				self.length -= 1
 
 
-
-
 arr = Myarray()
 
 arr.push("a")

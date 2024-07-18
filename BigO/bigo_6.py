@@ -3,7 +3,7 @@ def booooo(n):
 		for i in range(len(n)):
 				print("booooo")
 
-booooo([1, 2, 3, 4, 5]) # O(1)
+booooo([1, 2, 3, 4, 5]) # O(n)
 
 def arrayOfHiNTimes(n):
 		hiArr = []

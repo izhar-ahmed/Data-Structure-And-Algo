@@ -25,5 +25,25 @@ def sumOfTwo(arr, target):
 				if arr[i] + arr[j] == target:
 						print(f"[{i}, {j}]")
 						break
+				j = j + 1
 
-sumOfTwo([3,3], 6)
+sumOfTwo([3,2,4], 6)
+
+
+def twoSum(arr, target):
+    i = 0
+    j = 1
+    while i < len(arr) - 1:
+        if j == len(arr):
+            i += 1
+            j = i + 1
+            continue
+
+        if arr[i] + arr[j] == target:
+            return [i, j]
+
+        j += 1
+
+    return None
+
+print(twoSum([2,7,11,15], 9))
