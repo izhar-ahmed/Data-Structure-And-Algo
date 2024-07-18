@@ -44,13 +44,14 @@ class LinkedList():
         if self.head == None:
             self.head = new_node
             self.tail = self.head
-            self.length = 1
+            self.length += 1
         else:
             self.tail.next = new_node
             self.tail = new_node
             self.length += 1
     
     def print_list(self):
+        arr = []
         if self.head == None:
             print("Empty")
         else:
@@ -108,6 +109,43 @@ class LinkedList():
             current_node.next = lead_node.next
             self.length -= 1
         
+    def reverse(self):
+        # my solution: Time O(n), Space O(n)
+        # link_list = []
+        # rev_list = []
+        # if self.length == 1:
+        #     return
+        # current_node = self.head
+        # for i in range(self.length):
+        #     link_list.append(current_node.data)
+        #     current_node = current_node.next
+        # i = self.length - 1
+        # while i >= 0:
+        #     rev_list.append(link_list[i])
+        #     i -= 1
+        # start_node = self.head
+        # for i in range(self.length):
+        #     start_node.data = rev_list[i]
+        #     start_node = start_node.next
+        if not self.head.next:
+            return self.head
+        first = self.head
+        last = self.tail
+        second = first.next
+        while second:
+            temp = second.next
+            second.next = first
+            first = second
+            second = temp
+        self.head.next = None
+        self.head = first
+        return self.print_list()
+        
+
+
+
+
+
 
 class DNode():
     def __init__(self, data):
@@ -133,14 +171,16 @@ class DoublyLinkedList():
             self.length += 1
     
     def print_list(self):
-        i = 0
+        arr = []
         current_node = self.head
         if current_node.data == None:
             print("empty")
         while current_node != None:
             print(current_node.data, end= ' ')
+            arr.append(current_node.data)
             current_node = current_node.next
         print()
+        return arr
     
     def preppend(self, data):
         new_node = DNode(data)
@@ -183,7 +223,6 @@ class DoublyLinkedList():
             follow_node = lead_node.next
             current_node.next = follow_node
             follow_node.prev = current_node
-
         
 
 
@@ -204,8 +243,9 @@ myLinkedList.prepend(2)
 myLinkedList.insert(1, 1) # [2,1,5,10]
 myLinkedList.insert(3, 7) # [2,1,5,7,10]
 #myLinkedList.insert(4,11) # [2,1,5,7,10,11]
-myLinkedList.remove(4)
 myLinkedList.print_list()
+print("reverse linked list")
+myLinkedList.reverse()
 print("-----------------------------")
 myDoublyLinkList = DoublyLinkedList()
 myDoublyLinkList.append(5)
