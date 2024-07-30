@@ -121,7 +121,7 @@ class BinarySearchTree():
         print(f"{left1kaleft.data} {left1karight.data} {right1kaleft.data} {right1karight.data}")
         right2 = right1karight.right
         left2 = right1karight.left
-        print(left2.data, right2.data)
+        print(left2.data, right2.data)   
         
         
 
