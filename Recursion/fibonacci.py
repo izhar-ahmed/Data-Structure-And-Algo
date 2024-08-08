@@ -6,7 +6,7 @@ def febnacciIterative(num):
     answer = [0, 1]
     for i in range(2, num + 1):
         answer.append(answer[len(answer) - 1] + answer[len(answer) - 2])
-    return answer
+    return answer[len(answer) - 1]
 
 def febonacciRecursive(num):
     if num < 2:
@@ -15,4 +15,4 @@ def febonacciRecursive(num):
     return febonacciRecursive(num - 1) + febonacciRecursive(num - 2)
 
 
-print(febnacciIterative(4))
+print(febnacciIterative(8))

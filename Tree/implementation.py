@@ -146,4 +146,21 @@ myBST.remove(88)
 
 myBST.print_BST()
 
+# travers using recursion
+def travers(node):
+    if node == None:
+        return None
+    return {"value": node.value, "left": travers(node.left), "right": travers(node.right)}
+
+# travers using iterative approach
+def travesIterative(root):
+    stack = [root]
+    while stack != None:
+        curr = stack.pop()
+        print(curr.value)
+        if curr.right:
+            stack.append(curr.right)
+        if curr.left:
+            stack.append(curr.left)
+        
 
