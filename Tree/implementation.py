@@ -153,14 +153,15 @@ def travers(node):
     return {"value": node.value, "left": travers(node.left), "right": travers(node.right)}
 
 # travers using iterative approach
+# This is preorder traversal that means first visit root and then left subtree and then right subtree
 def travesIterative(root):
     stack = [root]
     while stack != None:
-        curr = stack.pop()
-        print(curr.value)
+        curr = stack.pop() # first pop from stack and save in variable
+        print(curr.value) # print it
         if curr.right:
-            stack.append(curr.right)
+            stack.append(curr.right) # add right 
         if curr.left:
-            stack.append(curr.left)
+            stack.append(curr.left) # add left
         
 

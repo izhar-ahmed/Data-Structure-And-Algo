@@ -20,8 +20,7 @@ print(findFactorialIterative(5))
 
 # 5 * findFactorialRecursive(4)
 # 5 * 4 * findFactorialRecursive(3)
-# 5 * 4 * 3 findFactorialRecursive(2)
-# 5 * 4 * 3 * 2 findFactorialRecursive(1)
-
+# 5 * 4 * 3 * findFactorialRecursive(2)
+# 5 * 4 * 3 * 2 * findFactorialRecursive(1)
 # 5 * 4 * 3 * 2 * 1
 # 120
