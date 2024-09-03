@@ -26,10 +26,10 @@ def validParenthesis(input):
                 return False
         if i == "(" or i == "[" or i == "{":
             stack.append(i)
-    if len(stack) == 0:
-        return True
-    else:
-        return False
+        if len(stack) == 0:
+            return True
+        else:
+            return False
 
             
 
