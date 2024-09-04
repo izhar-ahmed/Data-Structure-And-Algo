@@ -8,5 +8,5 @@ def bubbleSort(arr):
                 arr[j + 1] = temp
     return arr
 
-number = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
+number = [5,3,8,4,2]
 print(bubbleSort(number)) # O(n ^ 2)
