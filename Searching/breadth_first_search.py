@@ -137,6 +137,53 @@ class BinarySearchTree():
             if currentNode.right:
                 queue.append(currentNode.right)
         return list
+    # Breadth First Search Recursive
+    def breadthFirstSearchR(self, queue, list):
+        if len(queue) == 0:
+            return list
+        currentNode = queue.pop(0)
+        list.append(currentNode.data)
+        if currentNode.left:
+            queue.append(currentNode.left)
+        if currentNode.right:
+            queue.append(currentNode.right)
+        return self.breadthFirstSearchR(queue, list)
+    
+    # Depth First Search
+    def DFSInOrder(self):
+        return traverseInOrder(self.root, [])
+    
+    def DFSPreOrder(self):
+        return traversePreOrder(self.root, [])
+    
+    def DFSPostOrder(self):
+        return traversePostOrder(self.root, [])
+
+def traverseInOrder(node, list):
+    if node.left:
+        traverseInOrder(node.left, list)
+    list.append(node.data)
+    if node.right:
+        traverseInOrder(node.right, list)
+    return list
+
+def traversePreOrder(node, list):
+    list.append(node.data)
+    if node.left:
+        traversePreOrder(node.left, list)
+    if node.right:
+        traversePreOrder(node.right, list)
+    return list
+
+def traversePostOrder(node, list):
+    if node.left:
+        traversePostOrder(node.left, list)
+    if node.right:
+        traversePostOrder(node.right, list)
+    list.append(node.data)
+    return list
+
+
         
         
 
@@ -150,13 +197,11 @@ myBST = BinarySearchTree()
 myBST.insert(9)
 myBST.insert(4)
 myBST.insert(20)
-myBST.insert(17)
-myBST.insert(88)
-myBST.insert(3)
+myBST.insert(1)
 myBST.insert(6)
-myBST.insert(90)
-myBST.insert(89)
-myBST.insert(92)
-myBST.remove(88)
+myBST.insert(15)
+myBST.insert(170)
 
-print(myBST.breadthFirstSearch())
+# print(myBST.breadthFirstSearch())
+# print(myBST.breadthFirstSearchR([myBST.root], []))
+print(myBST.DFSPostOrder())
