@@ -17,3 +17,19 @@ def fib_memoization(n, memo={}):
 
 # The above solution is using dynamic programming and we used memoization for optimization.
 # It stores the subproblems solutions so it can prevent redundant computation.
+
+
+# Here is bottom-up approach
+def fib3(n):
+    answer = [0, 1]
+    for i in range(2, len(n)):
+        answer.append(answer[i-2] + answer[i-1])
+    return answer.pop()
+
+#-----------------------------------------------
+
+# Here are some popular Dynamic Programming Questions (see if you can notice the pattern):
+
+# 1. House Robber    
+# 2. Best Time to Buy and Sell Stock  
+# 3. Climbing Stairs    

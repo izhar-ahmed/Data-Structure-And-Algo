@@ -1,4 +1,4 @@
-def febnacciIterative(num):
+def fibonacciIterative(num):
     if num == 0:
         return 0
     if num == 1:
@@ -8,11 +8,11 @@ def febnacciIterative(num):
         answer.append(answer[len(answer) - 1] + answer[len(answer) - 2])
     return answer[len(answer) - 1]
 
-def febonacciRecursive(num):
+def fibonacciRecursive(num):
     if num < 2:
         return num
     
-    return febonacciRecursive(num - 1) + febonacciRecursive(num - 2)
+    return fibonacciRecursive(num - 1) + fibonacciRecursive(num - 2)
 
 
-print(febnacciIterative(8))
+print(fibonacciIterative(8))
